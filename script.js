@@ -58,12 +58,14 @@ function goToPage(idx) {
     currentIdx = idx;
   }
   window.scrollTo(0, 0);
+  location.hash = 'page-' + idx;
   updateNav();
 }
 
 function showFamousPage(who) {
   famousFrom = currentIdx;
   onFamous = true;
+  location.hash = 'famous-' + who;
   document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
   document.querySelectorAll('.fd-person').forEach(p => p.style.display = 'none');
   document.getElementById('fd-' + who).style.display = 'block';
@@ -395,4 +397,18 @@ document.getElementById('btn-next').addEventListener('click', nextPage);
 document.getElementById('btn-submit').addEventListener('click', submitReading);
 
 /* ═══════ INIT ═══════ */
-updateNav();
+// Restore page from URL hash on refresh
+(function restoreFromHash() {
+  const hash = location.hash.replace('#', '');
+  if (hash.startsWith('famous-')) {
+    const who = hash.replace('famous-', '');
+    showFamousPage(who);
+  } else if (hash.startsWith('page-')) {
+    const idx = parseInt(hash.replace('page-', ''));
+    if (!isNaN(idx) && idx >= 0 && idx < TOTAL_FLOW) {
+      goToPage(idx);
+      return;
+    }
+  }
+  updateNav();
+})();
