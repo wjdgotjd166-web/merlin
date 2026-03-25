@@ -16,8 +16,15 @@ const openai = new OpenAI({
 
 /**
  * Convert a free-form date string to YYYY-MM-DD
- * Supported: "1990년 3월 15일", "1990.03.15", "1990/03/15", "1990-03-15", "19900315"
+ * Supported: "Mar 15, 1990", "March 15 1990", "15 Mar 1990", "1990-03-15",
+ *            "1990.03.15", "1990/03/15", "03/15/1990", "19900315", "1990년 3월 15일"
  */
+const MONTHS = {
+  jan:1,january:1,feb:2,february:2,mar:3,march:3,apr:4,april:4,
+  may:5,jun:6,june:6,jul:7,july:7,aug:8,august:8,
+  sep:9,september:9,oct:10,october:10,nov:11,november:11,dec:12,december:12
+};
+
 function parseBirthDate(input) {
   if (!input) return null;
   const s = input.trim();
@@ -25,6 +32,22 @@ function parseBirthDate(input) {
   // Already in YYYY-MM-DD format
   let m = s.match(/^(\d{4})-(\d{1,2})-(\d{1,2})$/);
   if (m) return `${m[1]}-${m[2].padStart(2,'0')}-${m[3].padStart(2,'0')}`;
+
+  // "Mar 15, 1990" or "March 15 1990" format
+  m = s.match(/^([A-Za-z]+)\s+(\d{1,2}),?\s+(\d{4})$/);
+  if (m && MONTHS[m[1].toLowerCase()]) {
+    return `${m[3]}-${String(MONTHS[m[1].toLowerCase()]).padStart(2,'0')}-${m[2].padStart(2,'0')}`;
+  }
+
+  // "15 Mar 1990" or "15 March 1990" format
+  m = s.match(/^(\d{1,2})\s+([A-Za-z]+)\s+(\d{4})$/);
+  if (m && MONTHS[m[2].toLowerCase()]) {
+    return `${m[3]}-${String(MONTHS[m[2].toLowerCase()]).padStart(2,'0')}-${m[1].padStart(2,'0')}`;
+  }
+
+  // "MM/DD/YYYY" format (US style)
+  m = s.match(/^(\d{1,2})\/(\d{1,2})\/(\d{4})$/);
+  if (m) return `${m[3]}-${m[1].padStart(2,'0')}-${m[2].padStart(2,'0')}`;
 
   // "1990년 3월 15일" format (Korean date input)
   m = s.match(/(\d{4})\s*년\s*(\d{1,2})\s*월\s*(\d{1,2})\s*일?/);
