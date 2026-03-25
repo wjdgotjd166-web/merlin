@@ -292,7 +292,7 @@ Based on this person's Saju, provide a deep reading on the topic "${topic}". Res
   }
 });
 
-const PORT = 3000;
+const PORT = process.env.PORT || 3000;
 const server = app.listen(PORT, () => {
   console.log(`Merlin server is running at http://localhost:${PORT}`);
   console.log('Server is running... (Do not close this window!)');
