@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Merlin — Ancient Korean Astrology, AI-Powered</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;1,400;1,600&family=Cinzel:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<!-- Star canvas -->
+<canvas id="star-canvas"></canvas>
+
+<!-- ═══════════════ NAVBAR ═══════════════ -->
+<nav class="navbar">
+  <div class="nav-logo" onclick="goToPage(0)">
+    <span class="star">✦</span> Merlin
+  </div>
+  <div class="nav-links">
+    <span class="nav-link" onclick="goToPage(0)">How it works</span>
+    <span class="nav-link" onclick="showFamousPage('jobs')">Famous Charts</span>
+    <span class="nav-link" onclick="goToPage(5)">Get Reading</span>
+  </div>
+  <button class="btn btn-primary btn-sm" onclick="goToPage(5)">Get My Reading</button>
+</nav>
+
+<!-- ═══════════════════════════════════════
+     MAIN FLOW: 6 pages (tutorial 1~5 + input)
+═══════════════════════════════════════════ -->
+
+<!-- PAGE 1: What Your Four Pillars Reveal -->
+<div id="page-0" class="page active">
+  <div class="flow-page">
+    <div class="flow-layout">
+      <div class="t-merlin">
+        <svg viewBox="0 0 120 160" xmlns="http://www.w3.org/2000/svg">
+          <path d="M38,155 Q32,120 35,95 Q42,82 60,80 Q78,82 85,95 Q88,120 82,155Z" fill="#1A0D3E"/>
+          <path d="M44,153 Q42,160 38,164 Q52,164 54,159Z" fill="#1A0D3E"/><path d="M76,153 Q78,160 82,164 Q68,164 66,159Z" fill="#1A0D3E"/>
+          <path d="M35,162 Q31,166 38,167 Q50,167 54,164Z" fill="#0D0820"/><path d="M85,162 Q89,166 82,167 Q70,167 66,164Z" fill="#0D0820"/>
+          <path d="M36,108 Q22,115 18,128 Q23,132 30,128 Q33,116 42,108Z" fill="#1A0D3E"/><circle cx="16" cy="130" r="6" fill="#E8C89A"/>
+          <path d="M84,108 Q98,115 102,128 Q97,132 90,128 Q87,116 78,110Z" fill="#1A0D3E"/><circle cx="104" cy="130" r="6" fill="#E8C89A"/>
+          <circle cx="60" cy="62" r="22" fill="#E8C89A"/>
+          <ellipse cx="50" cy="67" rx="4.5" ry="3.5" fill="#F0A08A" opacity="0.55"/><ellipse cx="70" cy="67" rx="4.5" ry="3.5" fill="#F0A08A" opacity="0.55"/>
+          <ellipse cx="53" cy="59" rx="5" ry="5.5" fill="#1A0D3E"/><ellipse cx="67" cy="59" rx="5" ry="5.5" fill="#1A0D3E"/>
+          <circle cx="55" cy="57" r="2" fill="#fff" opacity="0.95"/><circle cx="69" cy="57" r="2" fill="#fff" opacity="0.95"/>
+          <path d="M48,52 Q53,49 58,52" stroke="#7A5030" stroke-width="1.3" fill="none" stroke-linecap="round"/>
+          <path d="M62,52 Q67,49 72,52" stroke="#7A5030" stroke-width="1.3" fill="none" stroke-linecap="round"/>
+          <ellipse cx="60" cy="66" rx="2.3" ry="1.8" fill="#D4A878" opacity="0.55"/>
+          <path d="M52,72 Q60,80 68,72" stroke="#C07848" stroke-width="1.6" fill="none" stroke-linecap="round"/>
+          <ellipse cx="38" cy="62" rx="3.5" ry="4.5" fill="#DEB880"/><ellipse cx="82" cy="62" rx="3.5" ry="4.5" fill="#DEB880"/>
+          <path d="M38,49 Q40,37 50,33 Q60,30 70,33 Q80,37 82,49" fill="#D8D0C0"/>
+          <path d="M38,49 Q34,42 30,46 Q27,52 31,58" fill="#C8C0B0"/><path d="M82,49 Q86,42 90,46 Q93,52 89,58" fill="#C8C0B0"/>
+          <path d="M54,75 Q60,83 66,75 Q63,81 60,84 Q57,81 54,75Z" fill="#E8E0D0" opacity="0.85"/>
+          <ellipse cx="60" cy="33" rx="27" ry="5.5" fill="#1A0D3E"/>
+          <path d="M40,33 Q45,10 52,-4 Q60,-14 68,-4 Q75,10 80,33Z" fill="#1A0D3E"/>
+          <rect x="41" y="28" width="38" height="5" rx="2" fill="#2A1460" opacity="0.8"/>
+          <polygon points="60,-2 61.8,4 68,4 63,7.5 65,13.5 60,10 55,13.5 57,7.5 52,4 58.2,4" fill="#F0C050" opacity="0.95"/>
+          <circle cx="60" cy="16" r="2.5" fill="#C9A84C" opacity="0.7"/>
+        </svg>
+        <div class="t-bubble"><span class="t-bname">Merlin</span>All of this from just a birth date? The stars have known all along!</div>
+      </div>
+      <div class="t-content">
+        <p class="hero-eyebrow">Ancient Korean Astrology · AI-Powered</p>
+        <h2 class="t-title">What Your Four Pillars Reveal</h2>
+        <p class="t-sub">The cosmic alignment at the moment of your birth holds all of this. Start with a free reading, and explore deeper whenever you're ready.</p>
+        <div class="preview-grid">
+          <div class="preview-card pc-a"><div class="badge badge-free">Free</div><div class="pc-icon">🔮</div><div class="pc-title">Innate Personality</div><div class="pc-item">Core temperament and essence</div><div class="pc-item">Strengths and hidden talents</div><div class="pc-item">Why you're drawn to certain things</div></div>
+          <div class="preview-card pc-b"><div class="badge badge-free">Free</div><div class="pc-icon">🌙</div><div class="pc-title">This Year's Energy</div><div class="pc-item">Overall flow this year</div><div class="pc-item">Times to be cautious</div><div class="pc-item">Seasons of opportunity</div></div>
+          <div class="preview-card pc-c"><div class="badge badge-free">Free</div><div class="pc-icon">💛</div><div class="pc-title">Love & Compatibility</div><div class="pc-item">Types that match you well</div><div class="pc-item">When romantic connections arrive</div><div class="pc-item">Recurring relationship patterns</div></div>
+          <div class="preview-card pc-d"><div class="badge badge-free">Free</div><div class="pc-icon">⚡</div><div class="pc-title">Career & Aptitude</div><div class="pc-item">Careers your chart points to</div><div class="pc-item">The age your success peaks</div><div class="pc-item">Greatest strength at work</div></div>
+          <div class="preview-card pc-e"><div class="badge badge-free">Free</div><div class="pc-icon">💰</div><div class="pc-title">Wealth & Timing</div><div class="pc-item">When money flows in</div><div class="pc-item">Investment suitability</div><div class="pc-item">Energies blocking wealth</div></div>
+          <div class="preview-card pc-f"><div class="badge badge-free">Free</div><div class="pc-icon">🔥</div><div class="pc-title">Deep Compatibility</div><div class="pc-item">Chart comparison with a specific person</div><div class="pc-item">Conflict patterns and how to overcome them</div><div class="pc-item">Whether it gets better with time together</div></div>
+        </div>
+        <div class="tease-bar"><span style="font-size:20px;">✦</span><div><strong>Start free.</strong> Once you see your basic reading — you'll be curious about the rest. Merlin guarantees it.</div></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- PAGE 2: What is Saju -->
+<div id="page-1" class="page">
+  <div class="flow-page">
+    <div class="flow-layout">
+      <div class="t-merlin">
+        <svg viewBox="0 0 120 160" xmlns="http://www.w3.org/2000/svg">
+          <path d="M38,155 Q32,120 35,95 Q42,82 60,80 Q78,82 85,95 Q88,120 82,155Z" fill="#1A0D3E"/>
+          <path d="M44,153 Q42,160 38,164 Q52,164 54,159Z" fill="#1A0D3E"/><path d="M76,153 Q78,160 82,164 Q68,164 66,159Z" fill="#1A0D3E"/>
+          <path d="M35,162 Q31,166 38,167 Q50,167 54,164Z" fill="#0D0820"/><path d="M85,162 Q89,166 82,167 Q70,167 66,164Z" fill="#0D0820"/>
+          <path d="M36,108 Q24,118 22,133 Q27,136 33,132 Q35,118 42,108Z" fill="#1A0D3E"/><circle cx="20" cy="135" r="6" fill="#E8C89A"/>
+          <path d="M84,108 Q96,114 100,126 Q98,131 91,128 Q88,116 78,110Z" fill="#1A0D3E"/><circle cx="98" cy="127" r="5.5" fill="#E8C89A"/>
+          <line x1="102" y1="122" x2="108" y2="155" stroke="#6B4A2A" stroke-width="3" stroke-linecap="round"/><circle cx="102" cy="120" r="5" fill="#C9A84C"/><circle cx="102" cy="120" r="3" fill="#F0C050"/>
+          <circle cx="60" cy="62" r="22" fill="#E8C89A"/>
+          <ellipse cx="50" cy="67" rx="4.5" ry="3.5" fill="#F0A08A" opacity="0.5"/><ellipse cx="70" cy="67" rx="4.5" ry="3.5" fill="#F0A08A" opacity="0.5"/>
+          <ellipse cx="53" cy="60" rx="3.8" ry="4.2" fill="#1A0D3E"/><ellipse cx="67" cy="60" rx="3.8" ry="4.2" fill="#1A0D3E"/>
+          <circle cx="54.5" cy="58.5" r="1.4" fill="#fff" opacity="0.9"/><circle cx="68.5" cy="58.5" r="1.4" fill="#fff" opacity="0.9"/>
+          <path d="M49,55 Q53,53 57,55" stroke="#7A5030" stroke-width="1.1" fill="none" stroke-linecap="round"/>
+          <path d="M63,55 Q67,53 71,55" stroke="#7A5030" stroke-width="1.1" fill="none" stroke-linecap="round"/>
+          <ellipse cx="60" cy="65" rx="2.3" ry="1.8" fill="#D4A878" opacity="0.55"/>
+          <path d="M54,71 Q60,76 66,71" stroke="#C07848" stroke-width="1.4" fill="none" stroke-linecap="round"/>
+          <ellipse cx="38" cy="62" rx="3.5" ry="4.5" fill="#DEB880"/><ellipse cx="82" cy="62" rx="3.5" ry="4.5" fill="#DEB880"/>
+          <path d="M38,49 Q40,37 50,33 Q60,30 70,33 Q80,37 82,49" fill="#D8D0C0"/>
+          <path d="M38,49 Q34,42 30,46 Q27,52 31,58" fill="#C8C0B0"/><path d="M82,49 Q86,42 90,46 Q93,52 89,58" fill="#C8C0B0"/>
+          <path d="M54,74 Q60,82 66,74 Q63,80 60,83 Q57,80 54,74Z" fill="#E8E0D0" opacity="0.85"/>
+          <ellipse cx="60" cy="33" rx="27" ry="5.5" fill="#1A0D3E"/>
+          <path d="M40,33 Q45,10 52,-4 Q60,-14 68,-4 Q75,10 80,33Z" fill="#1A0D3E"/>
+          <rect x="41" y="28" width="38" height="5" rx="2" fill="#2A1460" opacity="0.8"/>
+          <polygon points="60,-2 61.8,4 68,4 63,7.5 65,13.5 60,10 55,13.5 57,7.5 52,4 58.2,4" fill="#F0C050" opacity="0.95"/>
+          <circle cx="60" cy="16" r="2.5" fill="#C9A84C" opacity="0.7"/>
+        </svg>
+        <div class="t-bubble"><span class="t-bname">Merlin</span>Hey there! Tonight by the campfire, I'll share a 2,000-year-old secret. Ready?</div>
+      </div>
+      <div class="t-content">
+        <h2 class="t-title">What is "Saju"?</h2>
+        <p class="t-sub">Saju (四柱) means "Four Pillars." The year, month, day, and hour of your birth — these four pillars create your unique cosmic signature.</p>
+        <div class="pillar-grid">
+          <div class="pillar-card"><div class="pillar-han">年</div><div class="pillar-name">Year Pillar</div><div class="pillar-desc">Year of birth<br>Energy of roots</div></div>
+          <div class="pillar-card"><div class="pillar-han">月</div><div class="pillar-name">Month Pillar</div><div class="pillar-desc">Month of birth<br>Energy of growth</div></div>
+          <div class="pillar-card me"><div class="pillar-han">日</div><div class="pillar-name">Day Pillar ← Me!</div><div class="pillar-desc">Day of birth<br>True essence</div></div>
+          <div class="pillar-card"><div class="pillar-han">時</div><div class="pillar-name">Hour Pillar</div><div class="pillar-desc">Hour of birth<br>Energy of the future</div></div>
+        </div>
+        <div class="vs-box">
+          <div class="vs-item"><div class="vs-label">Western Astrology</div><div class="vs-val">Reads fate through planetary positions</div></div>
+          <div class="vs-divider">vs</div>
+          <div class="vs-item"><div class="vs-label">Saju (Eastern)</div><div class="vs-val">The moment of birth itself is a message from the universe</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- PAGE 3: Five Elements -->
+<div id="page-2" class="page">
+  <div class="flow-page">
+    <div class="flow-layout">
+      <div class="t-merlin">
+        <svg viewBox="0 0 120 160" xmlns="http://www.w3.org/2000/svg">
+          <path d="M38,155 Q32,120 35,95 Q42,82 60,80 Q78,82 85,95 Q88,120 82,155Z" fill="#1A0D3E"/>
+          <path d="M44,153 Q42,160 38,164 Q52,164 54,159Z" fill="#1A0D3E"/><path d="M76,153 Q78,160 82,164 Q68,164 66,159Z" fill="#1A0D3E"/>
+          <path d="M35,162 Q31,166 38,167 Q50,167 54,164Z" fill="#0D0820"/><path d="M85,162 Q89,166 82,167 Q70,167 66,164Z" fill="#0D0820"/>
+          <path d="M36,108 Q24,118 22,133 Q27,136 33,132 Q35,118 42,108Z" fill="#1A0D3E"/><circle cx="20" cy="135" r="6" fill="#E8C89A"/>
+          <path d="M84,108 Q96,114 100,126 Q98,131 91,128 Q88,116 78,110Z" fill="#1A0D3E"/><circle cx="98" cy="127" r="5.5" fill="#E8C89A"/>
+          <circle cx="100" cy="121" r="9" fill="rgba(127,119,221,0.2)" stroke="#7F77DD" stroke-width="1"/>
+          <text x="100" y="125" text-anchor="middle" font-size="9" fill="#C9A84C">五行</text>
+          <circle cx="60" cy="62" r="22" fill="#E8C89A"/>
+          <ellipse cx="50" cy="67" rx="4.5" ry="3.5" fill="#F0A08A" opacity="0.5"/><ellipse cx="70" cy="67" rx="4.5" ry="3.5" fill="#F0A08A" opacity="0.5"/>
+          <ellipse cx="53" cy="60" rx="3.8" ry="4.2" fill="#1A0D3E"/><ellipse cx="67" cy="60" rx="3.8" ry="4.2" fill="#1A0D3E"/>
+          <circle cx="54.5" cy="58.5" r="1.4" fill="#fff" opacity="0.9"/><circle cx="68.5" cy="58.5" r="1.4" fill="#fff" opacity="0.9"/>
+          <path d="M49,55 Q53,53 57,55" stroke="#7A5030" stroke-width="1.1" fill="none" stroke-linecap="round"/><path d="M63,55 Q67,53 71,55" stroke="#7A5030" stroke-width="1.1" fill="none" stroke-linecap="round"/>
+          <ellipse cx="60" cy="65" rx="2.3" ry="1.8" fill="#D4A878" opacity="0.55"/>
+          <path d="M54,71 Q60,76 66,71" stroke="#C07848" stroke-width="1.4" fill="none" stroke-linecap="round"/>
+          <ellipse cx="38" cy="62" rx="3.5" ry="4.5" fill="#DEB880"/><ellipse cx="82" cy="62" rx="3.5" ry="4.5" fill="#DEB880"/>
+          <path d="M38,49 Q40,37 50,33 Q60,30 70,33 Q80,37 82,49" fill="#D8D0C0"/>
+          <path d="M38,49 Q34,42 30,46 Q27,52 31,58" fill="#C8C0B0"/><path d="M82,49 Q86,42 90,46 Q93,52 89,58" fill="#C8C0B0"/>
+          <path d="M54,74 Q60,82 66,74 Q63,80 60,83 Q57,80 54,74Z" fill="#E8E0D0" opacity="0.85"/>
+          <ellipse cx="60" cy="33" rx="27" ry="5.5" fill="#1A0D3E"/>
+          <path d="M40,33 Q45,10 52,-4 Q60,-14 68,-4 Q75,10 80,33Z" fill="#1A0D3E"/>
+          <rect x="41" y="28" width="38" height="5" rx="2" fill="#2A1460" opacity="0.8"/>
+          <polygon points="60,-2 61.8,4 68,4 63,7.5 65,13.5 60,10 55,13.5 57,7.5 52,4 58.2,4" fill="#F0C050" opacity="0.95"/>
+          <circle cx="60" cy="16" r="2.5" fill="#C9A84C" opacity="0.7"/>
+        </svg>
+        <div class="t-bubble"><span class="t-bname">Merlin</span>The universe is made of five energies. They're blended inside you too — and that ratio is what makes you, you!</div>
+      </div>
+      <div class="t-content">
+        <h2 class="t-title">The 5 Energies That Shape the Universe</h2>
+        <p class="t-sub">As you read, you might think "that's so me."</p>
+        <div class="elem-list">
+          <div class="elem-row" style="background:rgba(20,50,20,0.35);border-color:rgba(60,150,60,0.25);">
+            <div class="elem-icon-col"><div class="elem-emoji">🌳</div><div class="elem-name" style="color:#7DC87D;">木 (Wood)</div><div class="elem-season">Spring · Dawn</div></div>
+            <div class="elem-body"><div class="elem-headline" style="color:#7DC87D;">A tree that grows endlessly upward</div><div class="elem-analogy">"No matter the situation, even when bent, they rise again. Creative ideas spring forth endlessly — they don't know how to stop."</div><div class="traits"><span class="trait" style="background:rgba(60,150,60,0.2);color:#7DC87D;">Growth-oriented</span><span class="trait" style="background:rgba(60,150,60,0.2);color:#7DC87D;">Creative</span><span class="trait" style="background:rgba(60,150,60,0.2);color:#7DC87D;">Resilient</span></div></div>
+          </div>
+          <div class="elem-row" style="background:rgba(60,20,10,0.35);border-color:rgba(220,100,50,0.25);">
+            <div class="elem-icon-col"><div class="elem-emoji">🔥</div><div class="elem-name" style="color:#E87050;">火 (Fire)</div><div class="elem-season">Summer · Noon</div></div>
+            <div class="elem-body"><div class="elem-headline" style="color:#E87050;">A flame that draws every eye in the room</div><div class="elem-analogy">"The person everyone turns to look at the moment they walk in — they instinctively warm those around them."</div><div class="traits"><span class="trait" style="background:rgba(220,100,50,0.2);color:#E87050;">Charismatic</span><span class="trait" style="background:rgba(220,100,50,0.2);color:#E87050;">Passionate</span><span class="trait" style="background:rgba(220,100,50,0.2);color:#E87050;">Expressive</span></div></div>
+          </div>
+          <div class="elem-row" style="background:rgba(40,30,10,0.35);border-color:rgba(180,140,60,0.25);">
+            <div class="elem-icon-col"><div class="elem-emoji">🏔️</div><div class="elem-name" style="color:#C9A84C;">土 (Earth)</div><div class="elem-season">Between seasons</div></div>
+            <div class="elem-body"><div class="elem-headline" style="color:#C9A84C;">A mountain that stands unmoved even in a storm</div><div class="elem-analogy">"The friend everyone turns to when times are hardest — not flashy, but without them, everything falls apart."</div><div class="traits"><span class="trait" style="background:rgba(180,140,60,0.2);color:#C9A84C;">Dependable</span><span class="trait" style="background:rgba(180,140,60,0.2);color:#C9A84C;">Embracing</span><span class="trait" style="background:rgba(180,140,60,0.2);color:#C9A84C;">Grounded</span></div></div>
+          </div>
+          <div class="elem-row" style="background:rgba(20,20,40,0.35);border-color:rgba(150,150,220,0.25);">
+            <div class="elem-icon-col"><div class="elem-emoji">⚔️</div><div class="elem-name" style="color:#9090D8;">金 (Metal)</div><div class="elem-season">Autumn · Evening</div></div>
+            <div class="elem-body"><div class="elem-headline" style="color:#9090D8;">A blade that cuts away impurities and sharpens its edge</div><div class="elem-analogy">"Even if 99% is perfect, they can't sleep if that 1% bothers them — their work is always sharp and precise."</div><div class="traits"><span class="trait" style="background:rgba(150,150,220,0.2);color:#9090D8;">Perfectionist</span><span class="trait" style="background:rgba(150,150,220,0.2);color:#9090D8;">Strong-willed</span><span class="trait" style="background:rgba(150,150,220,0.2);color:#9090D8;">Sharp judgment</span></div></div>
+          </div>
+          <div class="elem-row" style="background:rgba(10,20,50,0.35);border-color:rgba(80,130,220,0.25);">
+            <div class="elem-icon-col"><div class="elem-emoji">🌊</div><div class="elem-name" style="color:#6090D8;">水 (Water)</div><div class="elem-season">Winter · Night</div></div>
+            <div class="elem-body"><div class="elem-headline" style="color:#6090D8;">Deep, still water that fits any vessel</div><div class="elem-analogy">"The quietest person in the room, yet the one who sees the most. They already know everything before a word is spoken."</div><div class="traits"><span class="trait" style="background:rgba(80,130,220,0.2);color:#6090D8;">Deep insight</span><span class="trait" style="background:rgba(80,130,220,0.2);color:#6090D8;">Sensitive</span><span class="trait" style="background:rgba(80,130,220,0.2);color:#6090D8;">Adaptable</span></div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- PAGE 4: Famous Charts -->
+<div id="page-3" class="page">
+  <div class="flow-page">
+    <div class="flow-layout">
+      <div class="t-merlin">
+        <svg viewBox="0 0 120 160" xmlns="http://www.w3.org/2000/svg">
+          <path d="M38,155 Q32,120 35,95 Q42,82 60,80 Q78,82 85,95 Q88,120 82,155Z" fill="#1A0D3E"/>
+          <path d="M44,153 Q42,160 38,164 Q52,164 54,159Z" fill="#1A0D3E"/><path d="M76,153 Q78,160 82,164 Q68,164 66,159Z" fill="#1A0D3E"/>
+          <path d="M35,162 Q31,166 38,167 Q50,167 54,164Z" fill="#0D0820"/><path d="M85,162 Q89,166 82,167 Q70,167 66,164Z" fill="#0D0820"/>
+          <path d="M36,108 Q18,112 14,126 Q19,130 26,126 Q30,114 42,108Z" fill="#1A0D3E"/><circle cx="12" cy="128" r="6" fill="#E8C89A"/>
+          <path d="M84,108 Q102,112 106,126 Q101,130 94,126 Q90,114 78,110Z" fill="#1A0D3E"/><circle cx="108" cy="128" r="6" fill="#E8C89A"/>
+          <circle cx="60" cy="62" r="22" fill="#E8C89A"/>
+          <ellipse cx="50" cy="67" rx="4.5" ry="3.5" fill="#F0A08A" opacity="0.5"/><ellipse cx="70" cy="67" rx="4.5" ry="3.5" fill="#F0A08A" opacity="0.5"/>
+          <ellipse cx="53" cy="58" rx="3.8" ry="4.5" fill="#1A0D3E"/><ellipse cx="67" cy="58" rx="3.8" ry="4.5" fill="#1A0D3E"/>
+          <circle cx="54.5" cy="56" r="1.4" fill="#fff" opacity="0.9"/><circle cx="68.5" cy="56" r="1.4" fill="#fff" opacity="0.9"/>
+          <path d="M49,53 Q53,51 57,53" stroke="#7A5030" stroke-width="1.1" fill="none" stroke-linecap="round"/><path d="M63,53 Q67,51 71,53" stroke="#7A5030" stroke-width="1.1" fill="none" stroke-linecap="round"/>
+          <ellipse cx="60" cy="65" rx="2.3" ry="1.8" fill="#D4A878" opacity="0.55"/>
+          <path d="M52,71 Q60,79 68,71" stroke="#C07848" stroke-width="1.6" fill="none" stroke-linecap="round"/>
+          <ellipse cx="38" cy="62" rx="3.5" ry="4.5" fill="#DEB880"/><ellipse cx="82" cy="62" rx="3.5" ry="4.5" fill="#DEB880"/>
+          <path d="M38,49 Q40,37 50,33 Q60,30 70,33 Q80,37 82,49" fill="#D8D0C0"/>
+          <path d="M38,49 Q34,42 30,46 Q27,52 31,58" fill="#C8C0B0"/><path d="M82,49 Q86,42 90,46 Q93,52 89,58" fill="#C8C0B0"/>
+          <path d="M54,74 Q60,82 66,74 Q63,80 60,83 Q57,80 54,74Z" fill="#E8E0D0" opacity="0.85"/>
+          <ellipse cx="60" cy="33" rx="27" ry="5.5" fill="#1A0D3E"/>
+          <path d="M40,33 Q45,10 52,-4 Q60,-14 68,-4 Q75,10 80,33Z" fill="#1A0D3E"/>
+          <rect x="41" y="28" width="38" height="5" rx="2" fill="#2A1460" opacity="0.8"/>
+          <polygon points="60,-2 61.8,4 68,4 63,7.5 65,13.5 60,10 55,13.5 57,7.5 52,4 58.2,4" fill="#F0C050" opacity="0.95"/>
+          <circle cx="60" cy="16" r="2.5" fill="#C9A84C" opacity="0.7"/>
+        </svg>
+        <div class="t-bubble"><span class="t-bname">Merlin</span>Hard to believe? Let me show you the charts of people you know. Dive deeper with the detailed view!</div>
+      </div>
+      <div class="t-content">
+        <h2 class="t-title">How Accurate Is It, Really?</h2>
+        <p class="t-sub">Looking at the charts of famous people shows that Saju is far more than superstition.</p>
+        <div class="famous-list">
+          <div class="famous-card">
+            <div class="f-avatar" style="background:rgba(127,119,221,0.18);border:1px solid rgba(127,119,221,0.3);">👑</div>
+            <div style="flex:1;">
+              <div class="f-name">Steve Jobs <span style="font-size:11px;color:rgba(255,255,255,0.4);font-weight:400;">Feb 24, 1955</span></div>
+              <span class="f-elem" style="background:rgba(144,144,216,0.18);color:#9090D8;border:1px solid rgba(144,144,216,0.3);">金 (Metal) · 火 (Fire) dominant</span>
+              <div class="f-text">"Metal cuts and refines. Fire moves people. His chart already had flawless products and blazing charisma written into it."</div>
+              <button class="btn btn-sm" onclick="showFamousPage('jobs')">✦ View Detailed Chart →</button>
+            </div>
+          </div>
+          <div class="famous-card">
+            <div class="f-avatar" style="background:rgba(80,130,220,0.18);border:1px solid rgba(80,130,220,0.3);">🎭</div>
+            <div style="flex:1;">
+              <div class="f-name">Marilyn Monroe <span style="font-size:11px;color:rgba(255,255,255,0.4);font-weight:400;">Jun 1, 1926</span></div>
+              <span class="f-elem" style="background:rgba(64,112,184,0.18);color:#6090D8;border:1px solid rgba(64,112,184,0.3);">水 (Water) · 木 (Wood) dominant</span>
+              <div class="f-text">"Water has no form — it changes with whatever vessel holds it. But water without roots eventually just flows away."</div>
+              <button class="btn btn-sm" onclick="showFamousPage('monroe')">✦ View Detailed Chart →</button>
+            </div>
+          </div>
+          <div class="famous-card">
+            <div class="f-avatar" style="background:rgba(20,100,20,0.18);border:1px solid rgba(60,150,60,0.3);">⚡</div>
+            <div style="flex:1;">
+              <div class="f-name">Elon Musk <span style="font-size:11px;color:rgba(255,255,255,0.4);font-weight:400;">Jun 28, 1971</span></div>
+              <span class="f-elem" style="background:rgba(60,150,60,0.18);color:#7DC87D;border:1px solid rgba(60,150,60,0.3);">木 (Wood) · 土 (Earth) dominant</span>
+              <div class="f-text">"Wood grows toward the sky — all the way to Mars. Earth is the execution power that drives it into the ground."</div>
+              <button class="btn btn-sm" onclick="showFamousPage('musk')">✦ View Detailed Chart →</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- PAGE 5: Ready -->
+<div id="page-4" class="page">
+  <div class="flow-page">
+    <div class="flow-layout">
+      <div class="t-merlin">
+        <svg viewBox="0 0 120 160" xmlns="http://www.w3.org/2000/svg">
+          <path d="M38,155 Q32,120 35,95 Q42,82 60,80 Q78,82 85,95 Q88,120 82,155Z" fill="#1A0D3E"/>
+          <path d="M44,153 Q42,160 38,164 Q52,164 54,159Z" fill="#1A0D3E"/><path d="M76,153 Q78,160 82,164 Q68,164 66,159Z" fill="#1A0D3E"/>
+          <path d="M35,162 Q31,166 38,167 Q50,167 54,164Z" fill="#0D0820"/><path d="M85,162 Q89,166 82,167 Q70,167 66,164Z" fill="#0D0820"/>
+          <path d="M36,108 Q24,118 22,133 Q27,136 33,132 Q35,118 42,108Z" fill="#1A0D3E"/><circle cx="20" cy="135" r="6" fill="#E8C89A"/>
+          <path d="M84,110 Q96,108 102,118 Q100,124 93,122 Q89,112 78,112Z" fill="#1A0D3E"/><circle cx="104" cy="116" r="6" fill="#E8C89A"/>
+          <path d="M104,111 Q108,108 110,112 Q108,116 104,116Z" fill="#E8C89A"/>
+          <circle cx="60" cy="62" r="22" fill="#E8C89A"/>
+          <ellipse cx="50" cy="67" rx="4.5" ry="3.5" fill="#F0A08A" opacity="0.55"/><ellipse cx="70" cy="67" rx="4.5" ry="3.5" fill="#F0A08A" opacity="0.55"/>
+          <path d="M49,57 Q53,54 57,57" stroke="#1A0D3E" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+          <ellipse cx="67" cy="59" rx="3.8" ry="4.2" fill="#1A0D3E"/><circle cx="68.5" cy="57" r="1.4" fill="#fff" opacity="0.9"/>
+          <path d="M49,53 Q53,51 57,53" stroke="#7A5030" stroke-width="1.1" fill="none" stroke-linecap="round"/><path d="M63,53 Q67,51 71,53" stroke="#7A5030" stroke-width="1.1" fill="none" stroke-linecap="round"/>
+          <ellipse cx="60" cy="65" rx="2.3" ry="1.8" fill="#D4A878" opacity="0.55"/>
+          <path d="M52,71 Q60,79 68,71" stroke="#C07848" stroke-width="1.6" fill="none" stroke-linecap="round"/>
+          <ellipse cx="38" cy="62" rx="3.5" ry="4.5" fill="#DEB880"/><ellipse cx="82" cy="62" rx="3.5" ry="4.5" fill="#DEB880"/>
+          <path d="M38,49 Q40,37 50,33 Q60,30 70,33 Q80,37 82,49" fill="#D8D0C0"/>
+          <path d="M38,49 Q34,42 30,46 Q27,52 31,58" fill="#C8C0B0"/><path d="M82,49 Q86,42 90,46 Q93,52 89,58" fill="#C8C0B0"/>
+          <path d="M54,74 Q60,82 66,74 Q63,80 60,83 Q57,80 54,74Z" fill="#E8E0D0" opacity="0.85"/>
+          <ellipse cx="60" cy="33" rx="27" ry="5.5" fill="#1A0D3E"/>
+          <path d="M40,33 Q45,10 52,-4 Q60,-14 68,-4 Q75,10 80,33Z" fill="#1A0D3E"/>
+          <rect x="41" y="28" width="38" height="5" rx="2" fill="#2A1460" opacity="0.8"/>
+          <polygon points="60,-2 61.8,4 68,4 63,7.5 65,13.5 60,10 55,13.5 57,7.5 52,4 58.2,4" fill="#F0C050" opacity="0.95"/>
+          <circle cx="60" cy="16" r="2.5" fill="#C9A84C" opacity="0.7"/>
+        </svg>
+        <div class="t-bubble"><span class="t-bname">Merlin</span>You're all set! Just tell me your birth date and I'll read what the stars have to say ✦</div>
+      </div>
+      <div class="t-content">
+        <h2 class="t-title">Now It's Your Turn! ✦</h2>
+        <p class="t-sub">You only need three things for a reading. We don't store anything.</p>
+        <div class="check-list">
+          <div class="check-row"><div class="check-icon">📅</div><div class="check-txt">Date of Birth<small>e.g.) Mar 15, 1990 — calculates Year, Month, and Day Pillars</small></div></div>
+          <div class="check-row"><div class="check-icon">🕰️</div><div class="check-txt">Time of Birth <span style="font-size:11px;opacity:0.5;">(optional)</span><small>e.g.) 9:00 AM — completes the Hour Pillar</small></div></div>
+          <div class="check-row"><div class="check-icon">📍</div><div class="check-txt">Place of Birth<small>e.g.) New York — used for timezone adjustment</small></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- PAGE 6: Discover My Four Pillars (Input) -->
+<div id="page-5" class="page">
+  <div class="flow-page">
+    <div class="flow-layout" style="justify-content:center;">
+      <div class="input-page">
+        <h2 class="t-title" style="text-align:center;margin-bottom:8px;">Discover My Four Pillars</h2>
+        <p class="t-sub" style="text-align:center;">Enter your birth date. Merlin will read the stars for you.</p>
+        <div class="hero-input-card">
+          <div class="merlin-say">
+            <div class="merlin-face">🧙</div>
+            <div class="merlin-bubble">
+              <span class="who">Merlin</span>
+              Tell me the time and place you came into this world. I shall reveal what the stars have always known.
+            </div>
+          </div>
+          <div class="field-row">
+            <div class="field-wrap">
+              <label class="field-label">Date of Birth</label>
+              <input class="field-input" id="input-birth" type="text" placeholder="e.g.) Mar 15, 1990">
+            </div>
+            <div class="field-wrap">
+              <label class="field-label">Time of Birth (optional)</label>
+              <input class="field-input" id="input-time" type="text" placeholder="e.g.) 9:00 AM">
+            </div>
+          </div>
+          <div class="field-row">
+            <div class="field-wrap">
+              <label class="field-label">Place of Birth</label>
+              <input class="field-input" id="input-place" type="text" placeholder="e.g.) Seoul / New York">
+            </div>
+            <div class="field-wrap">
+              <label class="field-label">Gender</label>
+              <div class="gender-row">
+                <button class="gender-btn" onclick="selectGender(this)">Male</button>
+                <button class="gender-btn" onclick="selectGender(this)">Female</button>
+                <button class="gender-btn" onclick="selectGender(this)">Prefer not to say</button>
+              </div>
+            </div>
+          </div>
+          <button class="btn btn-primary" id="btn-submit" style="width:100%;justify-content:center;margin-top:6px;font-size:15px;">
+            ✦ Get My Reading — Free
+          </button>
+          <p class="hint-text">Free · No signup required · No data stored</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- PAGE 7: Reading Results -->
+<div id="page-6" class="page">
+  <div class="reading-hero">
+    <div class="reading-hero-top">
+      <span class="reading-tag">Free Reading</span>
+      <button class="btn btn-primary" style="font-size:13px;padding:8px 16px;" onclick="purchaseReading('bundle')">Full Deep Reading ✦</button>
+    </div>
+    <p style="font-size:11px;color:var(--ember);font-family:system-ui;font-weight:600;letter-spacing:0.06em;margin-bottom:10px;">My Four Pillars</p>
+    <div class="pillars-display" id="reading-pillars">
+      <div class="p-card"><div class="p-han">...</div><div class="p-label">Loading</div></div>
+    </div>
+    <p class="reading-identity" id="reading-identity">Analyzing...</p>
+  </div>
+  <div class="reading-content">
+    <div class="reading-sections" id="reading-sections">
+      <div class="r-section">
+        <div class="r-avatar">🧙</div>
+        <div class="r-speech"><span class="r-label">Merlin</span>Reading the stars...</div>
+      </div>
+    </div>
+    <div class="hook-box">
+      <div class="r-section">
+        <div class="r-avatar">🧙</div>
+        <div class="r-speech" style="border-color:rgba(201,168,76,0.3);">
+          <span class="r-label">Merlin</span>
+          <span id="reading-hook">I see much more in your chart...</span>
+        </div>
+      </div>
+    </div>
+    <h3 class="upsell-title">Explore Deeper</h3>
+    <div class="upsell-grid">
+      <div class="upsell-card" data-topic="love" onclick="purchaseReading('love')">
+        <div class="upsell-icon">💛</div>
+        <div class="upsell-name">Love & Compatibility</div>
+        <div class="upsell-desc">Attractive types, compatible partners, timing of connections</div>
+        <div class="upsell-price">Free</div>
+      </div>
+      <div class="upsell-card" data-topic="career" onclick="purchaseReading('career')">
+        <div class="upsell-icon">⚡</div>
+        <div class="upsell-name">Career & Aptitude</div>
+        <div class="upsell-desc">Chart-aligned careers and your peak success period</div>
+        <div class="upsell-price">Free</div>
+      </div>
+      <div class="upsell-card" data-topic="wealth" onclick="purchaseReading('wealth')">
+        <div class="upsell-icon">💰</div>
+        <div class="upsell-name">Wealth & Timing</div>
+        <div class="upsell-desc">When to take risks and when to wait</div>
+        <div class="upsell-price">Free</div>
+      </div>
+    </div>
+    <div id="paid-readings-container" style="display:none;"></div>
+    <div class="bundle-card" data-topic="bundle" onclick="purchaseReading('bundle')">
+      <div>
+        <span class="bundle-badge">View All at Once</span>
+        <div class="bundle-name">Full Reading — Love + Career + Wealth all together</div>
+      </div>
+      <div class="bundle-right">
+        <div class="bundle-price">Free</div>
+        <button class="btn btn-primary" style="margin-top:10px;font-size:13px;padding:8px 16px;">View All ✦</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════
+     FAMOUS DETAIL (separate page)
+═══════════════════════════════════════════ -->
+<div id="page-famous" class="page">
+  <div style="padding:16px 20px;">
+    <button class="btn btn-outline" onclick="prevPage()" style="font-size:14px;">← Go Back</button>
+  </div>
+  <div class="famous-detail-body">
+    <!-- JOBS -->
+    <div id="fd-jobs" class="fd-person">
+      <div class="fd-hero">
+        <div class="fd-avatar" style="background:rgba(127,119,221,0.18);border:1px solid rgba(127,119,221,0.3);">👑</div>
+        <div>
+          <div class="fd-name">Steve Jobs</div>
+          <div class="fd-meta">Feb 24, 1955 · 7:15 AM · San Francisco, California</div>
+          <div class="fd-pillars">
+            <div class="fd-pillar"><div class="fd-phan">乙</div><div class="fd-plabel">Year (木)</div></div>
+            <div class="fd-pillar"><div class="fd-phan">甲</div><div class="fd-plabel">Month (木)</div></div>
+            <div class="fd-pillar me"><div class="fd-phan">庚</div><div class="fd-plabel">Day (金) ★</div></div>
+            <div class="fd-pillar"><div class="fd-phan">丙</div><div class="fd-plabel">Hour (火)</div></div>
+          </div>
+        </div>
+      </div>
+      <div class="fd-section">
+        <div class="fd-stitle">✦ Dominant Elements</div>
+        <div class="fd-chips">
+          <span class="fd-chip" style="background:rgba(144,144,216,0.2);color:#9090D8;border:1px solid rgba(144,144,216,0.4);">⚔️ 金 (Metal) — Core Self</span>
+          <span class="fd-chip" style="background:rgba(220,100,50,0.2);color:#E87050;border:1px solid rgba(220,100,50,0.4);">🔥 火 (Fire) — Charisma</span>
+          <span class="fd-chip" style="background:rgba(60,150,60,0.2);color:#7DC87D;border:1px solid rgba(60,150,60,0.4);">🌳 木 (Wood) — Creative Energy</span>
+        </div>
+      </div>
+      <div class="fd-section">
+        <div class="fd-stitle">✦ Merlin's Interpretation</div>
+        <div class="fd-mrow"><div class="fd-mavatar">🧙</div><div class="fd-speech"><span class="fd-slabel">Essence — 金 (Metal) Day Pillar</span>Jobs' Day Pillar is 金 (Metal). Metal is the element that cuts raw stone into gems — he wanted to strip away everything unnecessary. His philosophy that "simplicity is harder than complexity" came straight from his chart. People with strong Metal energy can't sleep if even 1% isn't perfect.</div></div>
+        <div class="fd-mrow"><div class="fd-mavatar">🧙</div><div class="fd-speech"><span class="fd-slabel">Charisma — 火 (Fire) Hour Pillar</span>The 火 (Fire) in his birth hour explains his energy on stage. When Jobs started speaking, tens of thousands held their breath. That magnetic pull wasn't trained — it was written in his chart.</div></div>
+        <div class="fd-mrow"><div class="fd-mavatar">🧙</div><div class="fd-speech"><span class="fd-slabel">Challenges and Crises</span>The 木 (Wood) in the Year and Month Pillars constantly pressured his Day Pillar 金 (Metal). The recurring challenges in Jobs' life — being fired, cancer diagnosis — were this tension manifesting in reality. But Metal only grows sharper the more it's struck.</div></div>
+      </div>
+      <div class="fd-section">
+        <div class="fd-stitle">✦ Life's Flow</div>
+        <div class="timeline">
+          <div class="tl-item"><div class="tl-line"><div class="tl-dot"></div><div class="tl-conn"></div></div><div class="tl-body"><div class="tl-age">20s — 木 (Wood) Major Luck Cycle</div><div class="tl-text">Started Apple in a garage. His autocratic leadership eventually got him ousted from his own company.</div></div></div>
+          <div class="tl-item"><div class="tl-line"><div class="tl-dot"></div><div class="tl-conn"></div></div><div class="tl-body"><div class="tl-age">40s — 金 (Metal) Major Luck Cycle peak</div><div class="tl-text">After returning, he unveiled iMac, iPod, and iPhone in succession. A decade that changed the world.</div></div></div>
+          <div class="tl-item"><div class="tl-line"><div class="tl-dot"></div></div><div class="tl-body"><div class="tl-age">50s — 水 (Water) Major Luck Cycle and farewell</div><div class="tl-text">Water wears Metal down. 2011, age 56.</div></div></div>
+        </div>
+      </div>
+      <div class="lesson-box"><div class="lesson-text">"Steve Jobs' chart is a <strong>structure of perfect tension</strong>. Creativity (Wood) meets precision (Metal), with a spark of flame (Fire) added on top. Without that tension, the iPhone would never have existed."</div></div>
+      <div class="fd-cta"><p>What story does your chart hold?</p><button class="btn btn-primary" style="font-size:15px;padding:14px 36px;" onclick="goToPage(5)">✦ Get My Reading — Free</button></div>
+    </div>
+    <!-- MONROE -->
+    <div id="fd-monroe" class="fd-person" style="display:none;">
+      <div class="fd-hero">
+        <div class="fd-avatar" style="background:rgba(80,130,220,0.18);border:1px solid rgba(80,130,220,0.3);">🎭</div>
+        <div>
+          <div class="fd-name">Marilyn Monroe</div>
+          <div class="fd-meta">Jun 1, 1926 · 9:30 AM · Los Angeles, California</div>
+          <div class="fd-pillars">
+            <div class="fd-pillar"><div class="fd-phan">丙</div><div class="fd-plabel">Year (火)</div></div>
+            <div class="fd-pillar"><div class="fd-phan">壬</div><div class="fd-plabel">Month (水)</div></div>
+            <div class="fd-pillar me"><div class="fd-phan">甲</div><div class="fd-plabel">Day (木) ★</div></div>
+            <div class="fd-pillar"><div class="fd-phan">壬</div><div class="fd-plabel">Hour (水)</div></div>
+          </div>
+        </div>
+      </div>
+      <div class="fd-section"><div class="fd-stitle">✦ Dominant Elements</div><div class="fd-chips"><span class="fd-chip" style="background:rgba(80,130,220,0.2);color:#6090D8;border:1px solid rgba(80,130,220,0.4);">🌊 水 (Water) — Flood of Emotion</span><span class="fd-chip" style="background:rgba(60,150,60,0.2);color:#7DC87D;border:1px solid rgba(60,150,60,0.4);">🌳 木 (Wood) — Core Self</span><span class="fd-chip" style="background:rgba(220,100,50,0.2);color:#E87050;border:1px solid rgba(220,100,50,0.4);">🔥 火 (Fire) — Light on Stage</span></div></div>
+      <div class="fd-section"><div class="fd-stitle">✦ Merlin's Interpretation</div>
+        <div class="fd-mrow"><div class="fd-mavatar">🧙</div><div class="fd-speech"><span class="fd-slabel">Essence — 木 (Wood) Day Pillar, surrounded by 水 (Water)</span>Monroe's Day Pillar is 木 (Wood). A tree needs roots to stand. But both her Month and Hour Pillars are 水 (Water) — when there's too much water, the tree can't take root and gets swept away.</div></div>
+        <div class="fd-mrow"><div class="fd-mavatar">🧙</div><div class="fd-speech"><span class="fd-slabel">Allure — 水 (Water) sensitivity and 火 (Fire) radiance</span>Water's deep sensitivity made her absorb every emotion. The 火 (Fire) in her Year Pillar was her presence on stage. She wasn't acting — she simply existed.</div></div>
+        <div class="fd-mrow"><div class="fd-mavatar">🧙</div><div class="fd-speech"><span class="fd-slabel">Wounds — Absence of 土 (Earth)</span>Her chart has almost no 土 (Earth). When there's too much Water and no Earth, emotions flow away endlessly. The "home" she searched for her entire life was never firmly anchored in her chart.</div></div>
+      </div>
+      <div class="fd-section"><div class="fd-stitle">✦ Life's Flow</div>
+        <div class="timeline">
+          <div class="tl-item"><div class="tl-line"><div class="tl-dot"></div><div class="tl-conn"></div></div><div class="tl-body"><div class="tl-age">Teens~20s — 水 (Water) Major Luck Cycle chaos</div><div class="tl-text">Monroe grew up moving between orphanages. That sensitivity is what led her to acting.</div></div></div>
+          <div class="tl-item"><div class="tl-line"><div class="tl-dot"></div><div class="tl-conn"></div></div><div class="tl-body"><div class="tl-age">30s — 火 (Fire) Major Luck Cycle peak</div><div class="tl-text">The era when her flame burned brightest. The world saw her.</div></div></div>
+          <div class="tl-item"><div class="tl-line"><div class="tl-dot"></div></div><div class="tl-body"><div class="tl-age">Age 36 — Return to 水 (Water)</div><div class="tl-text">The depth of emotion grew deeper, and the roots grew weaker. 1962, age 36.</div></div></div>
+        </div>
+      </div>
+      <div class="lesson-box"><div class="lesson-text">"Monroe's chart is a <strong>beautiful imbalance</strong>. The overflowing Water made her the most moving actress, but at the same time, the most easily wounded."</div></div>
+      <div class="fd-cta"><p>Which elements overflow and which are lacking in your chart?</p><button class="btn btn-primary" style="font-size:15px;padding:14px 36px;" onclick="goToPage(5)">✦ Get My Reading — Free</button></div>
+    </div>
+    <!-- MUSK -->
+    <div id="fd-musk" class="fd-person" style="display:none;">
+      <div class="fd-hero">
+        <div class="fd-avatar" style="background:rgba(20,100,20,0.18);border:1px solid rgba(60,150,60,0.3);">⚡</div>
+        <div>
+          <div class="fd-name">Elon Musk</div>
+          <div class="fd-meta">Jun 28, 1971 · 6:00 AM (estimated) · Pretoria, South Africa</div>
+          <div class="fd-pillars">
+            <div class="fd-pillar"><div class="fd-phan">辛</div><div class="fd-plabel">Year (金)</div></div>
+            <div class="fd-pillar"><div class="fd-phan">甲</div><div class="fd-plabel">Month (木)</div></div>
+            <div class="fd-pillar me"><div class="fd-phan">己</div><div class="fd-plabel">Day (土) ★</div></div>
+            <div class="fd-pillar"><div class="fd-phan">庚</div><div class="fd-plabel">Hour (金)</div></div>
+          </div>
+        </div>
+      </div>
+      <div class="fd-section"><div class="fd-stitle">✦ Dominant Elements</div><div class="fd-chips"><span class="fd-chip" style="background:rgba(180,140,60,0.2);color:#C9A84C;border:1px solid rgba(180,140,60,0.4);">🏔️ 土 (Earth) — Core Self</span><span class="fd-chip" style="background:rgba(60,150,60,0.2);color:#7DC87D;border:1px solid rgba(60,150,60,0.4);">🌳 木 (Wood) — Vision</span><span class="fd-chip" style="background:rgba(144,144,216,0.2);color:#9090D8;border:1px solid rgba(144,144,216,0.4);">⚔️ 金 (Metal) — Execution</span></div></div>
+      <div class="fd-section"><div class="fd-stitle">✦ Merlin's Interpretation</div>
+        <div class="fd-mrow"><div class="fd-mavatar">🧙</div><div class="fd-speech"><span class="fd-slabel">Essence — 土 (Earth) Day Pillar</span>Musk's Day Pillar is 土 (Earth). Earth is a mountain — unshakable, accepting of anything, and ultimately turning everything into reality. Even colonizing Mars is just another item on his to-do list.</div></div>
+        <div class="fd-mrow"><div class="fd-mavatar">🧙</div><div class="fd-speech"><span class="fd-slabel">Vision — Month Pillar 木 (Wood)</span>The 木 (Wood) in his Month Pillar explains the scale of his vision. Trees grow toward the sky ten years ahead. The idea of backing up Earth is Wood energy taken to its extreme.</div></div>
+        <div class="fd-mrow"><div class="fd-mavatar">🧙</div><div class="fd-speech"><span class="fd-slabel">Execution — 金 (Metal)</span>He dreams (Wood), then hammers it into reality (Earth + Metal). That's why Musk self-taught rocket engineering and built factories himself.</div></div>
+      </div>
+      <div class="fd-section"><div class="fd-stitle">✦ Life's Flow</div>
+        <div class="timeline">
+          <div class="tl-item"><div class="tl-line"><div class="tl-dot"></div><div class="tl-conn"></div></div><div class="tl-body"><div class="tl-age">20s — 木 (Wood) Major Luck Cycle</div><div class="tl-text">Founded Zip2 and X.com (now PayPal). An era of vision without a solid foundation.</div></div></div>
+          <div class="tl-item"><div class="tl-line"><div class="tl-dot"></div><div class="tl-conn"></div></div><div class="tl-body"><div class="tl-age">30s~40s — 土 (Earth) + 金 (Metal) peak</div><div class="tl-text">SpaceX's first orbit, Tesla turning profitable. The mountain did not waver.</div></div></div>
+          <div class="tl-item"><div class="tl-line"><div class="tl-dot"></div></div><div class="tl-body"><div class="tl-age">Present — 木 (Wood) reignited</div><div class="tl-text">Twitter acquisition, xAI founded. The tree has begun growing in a new direction once again.</div></div></div>
+        </div>
+      </div>
+      <div class="lesson-box"><div class="lesson-text">"Musk's chart is a <strong>perfect combination of dreams and execution</strong>. Without Wood, he would never have dreamed of Mars. Without Earth + Metal, he could never have actually launched the rockets."</div></div>
+      <div class="fd-cta"><p>What's the balance of dreams and execution in your chart?</p><button class="btn btn-primary" style="font-size:15px;padding:14px 36px;" onclick="goToPage(5)">✦ Get My Reading — Free</button></div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════ BOTTOM NAV ═══════════════ -->
+<div class="flow-footer" id="flow-footer">
+  <button class="btn btn-outline" id="btn-prev">← Back</button>
+  <div class="progress-steps" id="progress-dots"></div>
+  <button class="btn btn-outline" id="btn-next">Next →</button>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
