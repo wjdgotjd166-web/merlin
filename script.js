@@ -200,12 +200,12 @@ function renderReading(data) {
 
   // Type
   document.getElementById('reading-identity').textContent =
-    `${data.dominantElement} 기운 · ${data.typeTitle}`;
+    `${data.dominantElement} · ${data.typeTitle}`;
 
   const sectionsEl = document.getElementById('reading-sections');
 
   const elemColors = {
-    '목': '#7DC87D', '화': '#E87050', '토': '#C9A84C', '금': '#9090D8', '수': '#6090D8'
+    'Wood': '#7DC87D', 'Fire': '#E87050', 'Earth': '#C9A84C', 'Metal': '#9090D8', 'Water': '#6090D8'
   };
 
   // check if reading is object (new structure) or string (legacy compatibility)

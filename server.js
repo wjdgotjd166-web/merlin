@@ -86,7 +86,7 @@ Year Pillar (年柱): ${pillars.year.hanja} (${pillars.year.korean}) — Element
 Month Pillar (月柱): ${pillars.month.hanja} (${pillars.month.korean}) — Element: ${pillars.month.element}
 Day Pillar (日柱/Day Master): ${pillars.day.hanja} (${pillars.day.korean}) — Element: ${pillars.day.element}
 Hour Pillar (時柱): ${pillars.hour.hanja ? `${pillars.hour.hanja} (${pillars.hour.korean}) — Element: ${pillars.hour.element}` : 'Time unknown'}
-Five Elements Distribution: Wood=${elemDist.목} Fire=${elemDist.화} Earth=${elemDist.토} Metal=${elemDist.금} Water=${elemDist.수}`;
+Five Elements Distribution: Wood=${elemDist.Wood} Fire=${elemDist.Fire} Earth=${elemDist.Earth} Metal=${elemDist.Metal} Water=${elemDist.Water}`;
 
   const systemPrompt = `You are "Merlin," a professional consultant specializing in Saju (Korean Four Pillars of Destiny / 사주팔자), rooted in traditional Korean fortune-telling (명리학).
 

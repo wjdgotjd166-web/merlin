@@ -10,10 +10,10 @@ const STEMS_HJ = ['甲', '乙', '丙', '丁', '戊', '己', '庚', '辛', '壬',
 const BRANCHES_KR = ['자', '축', '인', '묘', '진', '사', '오', '미', '신', '유', '술', '해'];
 const BRANCHES_HJ = ['子', '丑', '寅', '卯', '辰', '巳', '午', '未', '申', '酉', '戌', '亥'];
 
-// 천간 오행
-const STEM_ELEMENTS = ['목', '목', '화', '화', '토', '토', '금', '금', '수', '수'];
-// 지지 오행 (본기 기준)
-const BRANCH_ELEMENTS = ['수', '토', '목', '목', '토', '화', '화', '토', '금', '금', '토', '수'];
+// Heavenly Stem elements
+const STEM_ELEMENTS = ['Wood', 'Wood', 'Fire', 'Fire', 'Earth', 'Earth', 'Metal', 'Metal', 'Water', 'Water'];
+// Earthly Branch elements (based on primary qi)
+const BRANCH_ELEMENTS = ['Water', 'Earth', 'Wood', 'Wood', 'Earth', 'Fire', 'Fire', 'Earth', 'Metal', 'Metal', 'Earth', 'Water'];
 
 // 절입일 근사값 — [그레고리월, 근사일, 사주월인덱스(0=寅月 ~ 11=丑月)]
 // 각 절기가 해당 사주월의 시작점
@@ -61,7 +61,7 @@ function getSajuMonthIndex(month, day) {
  * "오전 9시", "오후 3시 30분", "14:00", "새벽 2시" 등
  */
 function parseTime(timeStr) {
-  if (!timeStr || timeStr === '모름' || timeStr.trim() === '') return null;
+  if (!timeStr || timeStr === '모름' || timeStr === 'Unknown' || timeStr.trim() === '') return null;
 
   let hour = null, minute = 0;
 
@@ -268,7 +268,7 @@ function calculate(birthDate, birthTime, timezone) {
  * 오행 분포 계산
  */
 function getElementDistribution(pillars) {
-  const count = { 목: 0, 화: 0, 토: 0, 금: 0, 수: 0 };
+  const count = { Wood: 0, Fire: 0, Earth: 0, Metal: 0, Water: 0 };
   for (const key of ['year', 'month', 'day', 'hour']) {
     const p = pillars[key];
     if (p.stem) count[p.stem.element]++;
