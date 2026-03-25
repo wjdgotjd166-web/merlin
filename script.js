@@ -141,6 +141,40 @@ function selectGender(btn) {
   btn.classList.add('active');
 }
 
+/* ═══════ SESSION STORAGE ═══════ */
+function saveSession() {
+  const session = { savedBirthData, basicReading: window._basicReading || null, loadedTopics };
+  sessionStorage.setItem('merlin-session', JSON.stringify(session));
+}
+
+function loadSession() {
+  try {
+    const raw = sessionStorage.getItem('merlin-session');
+    if (!raw) return false;
+    const session = JSON.parse(raw);
+    if (session.savedBirthData) savedBirthData = session.savedBirthData;
+    if (session.basicReading) {
+      window._basicReading = session.basicReading;
+      renderReading(session.basicReading);
+    }
+    if (session.loadedTopics) {
+      for (const [topic, data] of Object.entries(session.loadedTopics)) {
+        loadedTopics[topic] = data;
+        renderDeepReading(topic, data);
+        // mark card as complete
+        const card = document.querySelector(`.upsell-card[data-topic="${topic}"]`);
+        if (card) {
+          const nameEl = card.querySelector('.upsell-name');
+          if (nameEl) nameEl.textContent = TOPIC_NAMES[topic] + ' ✓';
+          const priceEl = card.querySelector('.upsell-price');
+          if (priceEl) priceEl.textContent = 'Complete';
+        }
+      }
+    }
+    return !!session.basicReading;
+  } catch (e) { return false; }
+}
+
 /* ═══════ SAJU READING — API CALL ═══════ */
 let savedBirthData = null; // Reuse for deep readings
 
@@ -178,7 +212,9 @@ async function submitReading() {
     if (!resp.ok) throw new Error('Server error');
 
     const data = await resp.json();
+    window._basicReading = data;
     renderReading(data);
+    saveSession();
     goToPage(6);
   } catch (err) {
     console.error(err);
@@ -324,6 +360,7 @@ async function loadDeepReading(topic) {
     const data = await resp.json();
     loadedTopics[topic] = data;
     renderDeepReading(topic, data);
+    saveSession();
 
     // mark card as "complete"
     if (card) {
@@ -397,8 +434,9 @@ document.getElementById('btn-next').addEventListener('click', nextPage);
 document.getElementById('btn-submit').addEventListener('click', submitReading);
 
 /* ═══════ INIT ═══════ */
-// Restore page from URL hash on refresh
-(function restoreFromHash() {
+// Restore session data + page from URL hash on refresh
+(function restore() {
+  const hasSession = loadSession();
   const hash = location.hash.replace('#', '');
   if (hash.startsWith('famous-')) {
     const who = hash.replace('famous-', '');
@@ -406,7 +444,11 @@ document.getElementById('btn-submit').addEventListener('click', submitReading);
   } else if (hash.startsWith('page-')) {
     const idx = parseInt(hash.replace('page-', ''));
     if (!isNaN(idx) && idx >= 0 && idx < TOTAL_FLOW) {
-      goToPage(idx);
+      if (idx === 6 && !hasSession) {
+        goToPage(0);
+      } else {
+        goToPage(idx);
+      }
       return;
     }
   }
